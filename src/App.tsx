@@ -48,10 +48,13 @@ function Description() {
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={Logo} width={"50%"} style={{maxWidth: "80%", maxHeight: "80%"}} alt="logo"/>
+        <div className="App" style={styles.body}>
+            <header className="App-header" style={styles.header}>
+                <img src={Logo} width={"10%"} style={{maxWidth: "80%", maxHeight: "40%"}} alt="logo"/>
             </header>
+
+
+
 
             {/*<Description/>*/}
             {/*<EmailSignup/>*/}
@@ -60,3 +63,45 @@ function App() {
 }
 
 export default App;
+
+const styles = {
+
+    body: {
+        backgroundColor: "#395569",
+        minHeight: "100vh",
+        padding: "10%",
+    },
+
+    description: {
+        backgroundColor: "#395569",
+        color: "white",
+        textAlign: "left",
+        width: "2/3",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    emailSignup: {
+        backgroundColor: "#395569",
+        color: "white",
+        textAlign: "left",
+        width: "2/3",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    header: {
+        backgroundColor: "#395569",
+        color: "white",
+        // textAlign: "left",
+        width: "2/3",
+        display: "flex",
+        // flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+    }
+
+
+}
