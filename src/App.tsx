@@ -4,6 +4,8 @@ import './App.css';
 
 import Logo from './images/SVG/logo.svg'
 
+
+
 function EmailSignup() {
     return <form action="submit" className="">
         <label>Hello</label>
@@ -46,18 +48,63 @@ function Description() {
     </section>;
 }
 
+interface ProjectCardProps {
+    title: string;
+    description: string;
+    url: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({title, description, url}) => {
+    return (
+        <div className="max-w-sm rounded overflow-hidden shadow-lg border-2 m-2 rounded-2xl bg-amber-50">
+            <div className="px-6 py-4">
+                <h2 className="text-xl mb-2" style={{fontFamily: "Bungee"}}>{title}</h2>
+                <p className="text-gray-700 text-base">
+                    {description}
+                </p>
+            </div>
+            <div className="px-6 pt-4 pb-2">
+                <a href={url}
+                   className="inline-block bg-black rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Learn
+                    More</a>
+            </div>
+        </div>
+    );
+};
+
+// export ProjectCard;
+
+const portfolio: ProjectCardProps[] = [
+    {
+        title: "Lazy Buddha",
+        description: "This meditation app epitomizes the essence of Lazy.nyc. It's designed for users seeking a straightforward, no-fuss approach to mindfulness. With minimal input required, Lazy Buddha guides users through calming sessions, making meditation accessible to even the busiest individuals.",
+        url: "https://www.lazybuddha.app/",
+    },
+    {
+        title: "Lazy Pages",
+        description: "A journaling app that redefines traditional diary-keeping. Lazy Pages caters to those who want to document their thoughts and experiences without the burden of extensive writing. Its intuitive interface allows for quick entries, making reflection and personal growth an effortless part of daily life.",
+        url: "https://www.lazypages.app/",
+    },
+    {
+        title: "Lazy Links",
+        description: "A link shortener that allows users to create custom URLs for their favorite websites. Lazy Links is ideal for those who want to share links without the hassle of long, complicated URLs.",
+        url: "https://www.lazylinks.app/",
+    },
+]
+
+
 function App() {
     return (
         <div className="App" style={styles.body}>
-            <header className="App-header" style={styles.header}>
-                <img src={Logo} width={"10%"} style={{maxWidth: "80%", maxHeight: "40%"}} alt="logo"/>
+            <header style={styles.header}>
+                <img src={Logo} style={{maxWidth: "50%", maxHeight: "40%"}} alt="logo"/>
             </header>
-
-
-
-
-            {/*<Description/>*/}
-            {/*<EmailSignup/>*/}
+            <div className="flex flex-row justify-center items-stretch flex-wrap mt-10">
+                {portfolio.map((project) => <ProjectCard description={project.description} title={project.title}
+                                                         url={project.url}/>)}
+                {/*<Description/>*/}
+                {/*<EmailSignup/>*/}
+            </div>
         </div>
     );
 }
@@ -69,7 +116,8 @@ const styles = {
     body: {
         backgroundColor: "#395569",
         minHeight: "100vh",
-        padding: "10%",
+        padding: "5%",
+        // fontFamily: "Bungee",
     },
 
     description: {
@@ -101,6 +149,7 @@ const styles = {
         // flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        fontFamily: "Times",
     }
 
 
